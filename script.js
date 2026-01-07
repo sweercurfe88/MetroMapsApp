@@ -127,4 +127,8 @@ function calcularRuta() {
 
   descripcion += `<p>Finalmente llegas a <b>${destinoNombre}</b>.</p>
     <p><b>Número de estaciones:</b> ${estacionesTotales} en total.</p>
-    <p><b>Tiempo promedio:</b> 1.5–
+    <p><b>Tiempo promedio:</b> 1.5–2 minutos por tramo + ${minutosPorTransbordo} minutos por transbordo.</p>
+    <p><b>Tiempo estimado del viaje:</b> ${tiempoEstimado} minutos.</p>`;
+
+  document.getElementById('descripcion').innerHTML = descripcion;
+}
