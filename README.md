@@ -1,4 +1,4 @@
-# MetroMapsApp 🚇
+# MetroMapsApp-2026 🚇
 
 **MetroMapsApp** es una aplicación web interactiva que muestra el mapa del metro de Monterrey con estaciones, rutas, transbordos y tiempo estimado de viaje. Está construida con HTML, CSS y JavaScript, utilizando Mapbox GL JS para la visualización geográfica. Diseñada para ser ligera, accesible y fácil de usar desde cualquier dispositivo.
 
