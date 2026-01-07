@@ -123,3 +123,8 @@ function calcularRuta() {
 
   if (intermedias.length) {
     descripcion += `<p>En el trayecto atraviesas estaciones como <b>${listadoCorto}</b>${hayMas}.</p>`;
+  }
+
+  descripcion += `<p>Finalmente llegas a <b>${destinoNombre}</b>.</p>
+    <p><b>Número de estaciones:</b> ${estacionesTotales} en total.</p>
+    <p><b>Tiempo promedio:</b> 1.5–
