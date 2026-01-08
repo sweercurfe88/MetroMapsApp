@@ -64,11 +64,16 @@ estaciones.forEach(est => {
   origenSelect.add(new Option(est.nombre, est.nombre));
   destinoSelect.add(new Option(est.nombre, est.nombre));
 });
-
 function calcularRuta() {
   const origenIndex = estaciones.findIndex(e => e.nombre === origenSelect.value);
   const destinoIndex = estaciones.findIndex(e => e.nombre === destinoSelect.value);
   if (origenIndex === -1 || destinoIndex === -1) return;
+
+  // Evento personalizado en Google Analytics
+  gtag('event', 'calcular_ruta', {
+    event_category: 'interaccion',
+    event_label: `${origenSelect.value} → ${destinoSelect.value}`
+  });
 
   const tramo = origenIndex < destinoIndex
     ? estaciones.slice(origenIndex, destinoIndex + 1)
@@ -106,7 +111,6 @@ function calcularRuta() {
   const destinoNombre = tramo[tramo.length - 1].nombre;
   const intermedias = tramo.slice(1, -1).map(e => e.nombre);
 
-  // Agrupar intermedias (máx 6 para que sea legible)
   const listadoCorto = intermedias.slice(0, 6).join(', ');
   const hayMas = intermedias.length > 6 ? `, entre otras` : '';
 
@@ -127,12 +131,6 @@ function calcularRuta() {
 
   descripcion += `<p>Finalmente llegas a <b>${destinoNombre}</b>.</p>
     <p><b>Número de estaciones:</b> ${estacionesTotales} en total.</p>
-    <p><b>Tiempo promedio:</b> 1.5–2 minutos por tramo + ${minutosPorTransbordo} minutos por transbordo.</p>
-    <p><b>Tiempo estimado del viaje:</b> ${tiempoEstimado} minutos.</p>`;
-
-  document.getElementById('descripcion').innerHTML = descripcion;
-}
-
     <p><b>Tiempo promedio:</b> 1.5–2 minutos por tramo + ${minutosPorTransbordo} minutos por transbordo.</p>
     <p><b>Tiempo estimado del viaje:</b> ${tiempoEstimado} minutos.</p>`;
 
