@@ -64,6 +64,7 @@ estaciones.forEach(est => {
   origenSelect.add(new Option(est.nombre, est.nombre));
   destinoSelect.add(new Option(est.nombre, est.nombre));
 });
+
 function calcularRuta() {
   const origenIndex = estaciones.findIndex(e => e.nombre === origenSelect.value);
   const destinoIndex = estaciones.findIndex(e => e.nombre === destinoSelect.value);
